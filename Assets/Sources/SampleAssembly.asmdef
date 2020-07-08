@@ -1,0 +1,14 @@
+{
+    "name": "SampleAssembly",
+    "references": [
+        "GUID:68811bca68374f9408a6713c607338a0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
