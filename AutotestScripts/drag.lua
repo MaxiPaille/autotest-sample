@@ -1,5 +1,7 @@
 
 function run()
+	Restart()
+		
 	Log("Starting 'Drag' test")
 
 	local viewport = GetGameObjectFromPath("Canvas/Scroll View")

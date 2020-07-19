@@ -1,43 +1,47 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Autotest;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Sample : MonoBehaviour
 {
 
-    private bool m_waitingForAutotest;
-    
     public int value { get; private set; }
     
     private void Start()
     {
-        m_waitingForAutotest = true;
-        
-        Autotesting.RegisterOnRun(OnRun);
-        Autotesting.Initialize();
+        Autotesting.Initialize(Debug.Log, RestartApp, OnScriptError);
         
         StartCoroutine(Process());
     }
 
-    private void OnRun()
+    private void RestartApp()
     {
-        m_waitingForAutotest = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void OnScriptError(string name, Exception exception)
+    {
+        Debug.LogError($"[Error] {name} - {exception.Message}");
     }
 
     private IEnumerator Process()
     {
-        Debug.Log("Waiting for autotest...");
+        Debug.Log("Starting...");
 
-        while (m_waitingForAutotest == true)
-            yield return null;
-        
-        Debug.Log("Autotest started.");
-
+        Debug.Log("Waiting for 2s...");
         yield return new WaitForSeconds(2f);
+        
+        Debug.Log("Sending event 'barrier'...");
         Autotesting.Event("barrier");
 
+        Debug.Log($"Changing Sample.instance.value from '{value}' to '100'...");
         value = 100;
+        
+        Debug.Log("Sending event 'value_updated'...");
         Autotesting.Event("value_updated");
     }
-    
+
 }

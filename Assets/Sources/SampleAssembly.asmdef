@@ -1,7 +1,7 @@
 {
     "name": "SampleAssembly",
     "references": [
-        "GUID:68811bca68374f9408a6713c607338a0"
+        "GUID:9f9d06457b3ed47a49caa20498a59660"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

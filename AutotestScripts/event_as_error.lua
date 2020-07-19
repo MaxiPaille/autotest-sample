@@ -1,5 +1,7 @@
 
 function run()
+	Restart()
+		
 	Log("Starting 'Event as error' test")
 
 	RegisterEventAsError("barrier") -- Receiving 'barrier' event from nom will stop the script execution with an error

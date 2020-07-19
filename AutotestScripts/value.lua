@@ -1,6 +1,8 @@
 import("SampleAssembly") -- Import the 'Sample' component's assembly (SampleAssembly)
 
 function run()
+	Restart()
+	
 	Log("Starting 'Value' test")
 
 	local sampleManager = GetGameObjectFromPath("SampleManager")

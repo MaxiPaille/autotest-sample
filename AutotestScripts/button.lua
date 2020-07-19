@@ -1,6 +1,8 @@
 import("UnityEngine.UI")
 
 function run()
+	Restart()
+	
 	Log("Starting 'Button' test")
 
 	local button = GetGameObjectFromPath("Canvas/Button")

@@ -1,5 +1,7 @@
 
 function run()
+	Restart()
+		
 	Log("Starting 'Event' test")
 
 	WaitForEvent("barrier", 10) -- Wait for 'barrier' event for 10 secondes maximum
